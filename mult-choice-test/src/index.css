@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.questionFlexContainer {
+  display: flex;
+  flex-direction: column;
+  border-width: 2px;
+  border-radius: 20px;
+  background-color: #f2f2f2;
+}
+
+.abcFlexContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.abcA {
+  border: 2px;
+  border-radius: 10px;
+  border-color: #188fad;
+}
+
+.abcB {
+  border: 2px;
+  border-radius: 10px;
+  border-color: #4bbb70;
+}
+
+.abcC {
+  border: 2px;
+  border-radius: 10px;
+  border-color: #4074ad;
+}
+
+.abcD {
+  border: 2px;
+  border-radius: 10px;
+  border-color: #625fa5;
+}
+
+.optionsFlexContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.optionA {
+  border: 2px;
+  border-radius: 10px;
+  border-color: #188fad;
+}
+
+.optionB {
+  border: 2px;
+  border-radius: 10px;
+  border-color: #4bbb70;
+}
+
+.optionC {
+  border: 2px;
+  border-radius: 10px;
+  border-color: #4074ad;
+}
+
+.optionD {
+  border: 2px;
+  border-radius: 10px;
+  border-color: #625fa5;
+}
