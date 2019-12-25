@@ -7,8 +7,7 @@ class App extends Component {
   return (
     <div>
       <Tests />
-      {/* {this.props.history.push('/test')} */}
-    </div>   
+    </div>
     )
   }
 }

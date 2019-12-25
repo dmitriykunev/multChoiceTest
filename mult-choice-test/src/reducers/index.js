@@ -11,7 +11,8 @@ import {
     phone: '',
     token: '',
     cards_passed: [],
-    cards_failed: []    
+    cards_failed: [],
+    progress: 5,   
   };
   
   function reducer(state = initialState, action) {

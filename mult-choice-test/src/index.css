@@ -12,68 +12,126 @@ code {
     monospace;
 }
 
-.questionFlexContainer {
+.main {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  margin: 20px;
+}
+
+.question {
   border-width: 2px;
+  padding: 10px;
   border-radius: 20px;
   background-color: #f2f2f2;
+  width: 300px;
 }
 
 .abcFlexContainer {
   display: flex;
   flex-direction: column;
+  margin: 10px;
+}
+
+.optionRowA {
+  display: flex;
+  flex-direction:row;
+}
+
+.optionRowB {
+  display: flex;
+  flex-direction:row;
+}
+
+.optionRowC {
+  display: flex;
+  flex-direction:row;
+}
+
+.optionRowD {
+  display: flex;
+  flex-direction:row;
 }
 
 .abcA {
   border: 2px;
+  margin: 10px;
+  padding:30px;
   border-radius: 10px;
-  border-color: #188fad;
+  background-color: #188fad;
+  width: 80px;
+  height: 80px;
+  text-align: center;
 }
 
 .abcB {
   border: 2px;
+  margin: 10px;
+  padding:30px;
   border-radius: 10px;
-  border-color: #4bbb70;
+  background-color: #4bbb70;
+  width: 80px;
+  height: 80px;
+  text-align: center;
 }
 
 .abcC {
   border: 2px;
+  margin: 10px;
+  padding:30px;
   border-radius: 10px;
-  border-color: #4074ad;
+  background-color: #4074ad;
+  width: 80px;
+  height: 80px;
+  text-align: center;
 }
 
 .abcD {
   border: 2px;
+  margin: 10px;
+  padding:30px;
   border-radius: 10px;
-  border-color: #625fa5;
-}
-
-.optionsFlexContainer {
-  display: flex;
-  flex-direction: column;
+  background-color: #625fa5;
+  width: 80px;
+  height: 80px;
+  text-align: center;
 }
 
 .optionA {
   border: 2px;
+  margin: 10px;
+  padding:30px;
   border-radius: 10px;
-  border-color: #188fad;
+  background-color: #188fad;
+  text-align: left;
+  width: 350px;
 }
 
 .optionB {
   border: 2px;
+  margin: 10px;
+  padding:30px;
   border-radius: 10px;
-  border-color: #4bbb70;
+  background-color: #4bbb70;
+  text-align: left;
+  width: 350px;
 }
 
 .optionC {
   border: 2px;
+  margin: 10px;
+  padding:30px;
   border-radius: 10px;
-  border-color: #4074ad;
+  background-color: #4074ad;
+  text-align: left;
+  width: 350px;
 }
 
 .optionD {
   border: 2px;
+  margin: 10px;
+  padding:30px;
   border-radius: 10px;
-  border-color: #625fa5;
+  background-color: #625fa5;
+  text-align: left;
+  width: 350px;
 }

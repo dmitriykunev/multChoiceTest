@@ -1,5 +1,5 @@
 import App from "./App.js";
-import Content from "./components/Tests";
+import Tests from "./components/Tests";
 import {BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import React from "react";
 
