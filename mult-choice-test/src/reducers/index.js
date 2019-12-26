@@ -12,7 +12,7 @@ import {
     token: '',
     cards_passed: [],
     cards_failed: [],
-    progress: 5,   
+    progress: 20  
   };
   
   function reducer(state = initialState, action) {

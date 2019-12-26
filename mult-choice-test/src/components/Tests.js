@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import ProgressBar from 'react-toolbox/lib/progress_bar';
-import IconButton from 'react-toolbox/lib/button';
+import ProgressBar from './ProgressBar';
+import Button from './Button';
 
 const mapStateToProps = state => {
     return state
@@ -10,12 +10,6 @@ const mapStateToProps = state => {
 
 class Tests extends Component {
 
-    progressBar = () => (
-        
-        <div>
-            <ProgressBar type='linear' mode='determinate' value={this.props.progress} buffer={this.props.progress + 5} />
-        </div>
-    );
 
     render () {
         return (
@@ -47,9 +41,9 @@ class Tests extends Component {
             </div>
             
             </div>
-            <div>
-                {this.progressBar}
-                <IconButton icon='navigate_next' label='Next' raised='true' onClick={this.handleNext} />           
+            <div className='navigate'>
+                <ProgressBar progress={this.props.progress} />
+                <Button onClick={this.handleNext} />           
             </div>    
             </div>
                 
