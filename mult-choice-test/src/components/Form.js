@@ -1,8 +1,7 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-import {connect} from 'react-redux';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -17,40 +16,35 @@ const useStyles = makeStyles(theme => ({
     },
   }));
 
-  const mapStateToProps = state => {
-    return state
-};
-
 const classes = useStyles();
 // const [level, setLevel] = React.useState('Elementary');
 const levels = [
     {
-      value: 'Elementary',
+      value: 'El',
       label: 'Elementary',
     },
     {
-      value: 'Pre-Intermediate',
+      value: 'Pre',
       label: 'Pre-Intermediate',
     },
     {
-      value: 'Intermediate',
+      value: 'Int',
       label: 'Intermediate',
     },
     {
-      value: 'Upper-Intermediate',
+      value: 'Upp',
       label: 'Upper-Intermediate',
     },
   ];
 
 
-  class Form extends Component {
+export default function Form() {
     
 
-    // handleSelect = event => {
+    // const handleSelect = event => {
     //     setLevel(event.target.value);
     //   };
 
-    render () {
         return (
             <form className={classes.root} noValidate autoComplete='off'>
                 <TextField id="outlined-basic" label="Имя" variant="outlined" />
@@ -65,6 +59,3 @@ const levels = [
             </form>
         )
     }
-  }
-
-  export default connect(mapStateToProps) (Form);
