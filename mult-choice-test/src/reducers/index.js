@@ -6,16 +6,18 @@ import {
     RESULT_FAIL,
     FORM_LEVEL_CHANGE,
     FORM_NAME_CHANGE,
-    FORM_PHONE_CHANGE
+    FORM_PHONE_CHANGE,
+    POPULATE_TEST
   } from '../constants/index';
   
   const initialState = {
     userName: '',
     phone: '',
     token: '',
+    cards: [],
     cards_passed: [],
     cards_failed: [],
-    progress: 20,
+    progress: 5,
     level: 'Elementary'  
   };
   
@@ -31,6 +33,8 @@ import {
         return state;
       case RESULT_FAIL:
         return state;
+      case POPULATE_TEST:
+        return {...state, cards: action.payload};
       case FORM_LEVEL_CHANGE:
           return {...state, level: action.payload};
       case FORM_NAME_CHANGE:

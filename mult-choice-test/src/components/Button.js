@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function IconLabelButtons() {
+export default function IconLabelButtons({onClick}) {
   const classes = useStyles();
 
   return (
@@ -19,6 +19,7 @@ export default function IconLabelButtons() {
         color="primary"
         className={classes.button}
         endIcon={<Icon>send</Icon>}
+        onClick={onClick}
       >
         Send
       </Button>     

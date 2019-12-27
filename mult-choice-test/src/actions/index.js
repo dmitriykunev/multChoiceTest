@@ -6,7 +6,8 @@ import {
     RESULT_FAIL,
     FORM_LEVEL_CHANGE,
     FORM_NAME_CHANGE,
-    FORM_PHONE_CHANGE
+    FORM_PHONE_CHANGE,
+    POPULATE_TEST
   } from '../constants/index'
   
   export function cardSuccess(payload) {
@@ -39,4 +40,8 @@ import {
 
   export function formPhoneChange(payload) {
     return {type: FORM_PHONE_CHANGE, payload}
+  };
+
+  export function populateTest(payload) {
+    return {type: POPULATE_TEST, payload}
   };

@@ -2,6 +2,9 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
+import Button from './Button';
+//import DataTransaction from './dataTransaction';
+import * as Cards from './cards';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -61,10 +64,29 @@ export default function Form(props) {
          });
        };
 
+       const handleSubmit = (event) => {
+         console.log('it works');
+         event.preventDefault();
+        // const payload = {
+        // userName: props.userName,
+        //   phone: props.phone,
+        //   level: props.level
+        //}
+        // const {data} = await DataTransaction.start(payload);
+         const payload = Cards.cards;
+         console.log(payload);
+         props.dispatch({
+           type: 'POPULATE_TEST',
+           payload
+         })
+         props.history.push('/test');
+         console.log('IT Should have worked!');
+       }
+
         return (
             <form className={classes.root} noValidate autoComplete='off'>
                 <TextField id="outlined-basic-name" label="Имя" variant="outlined" onChange={handleName} />
-                <TextField id="outlined-basic-phone" label="Телефон" variant="outlined" onChange={handlePhone} />
+                <TextField id="outlined-basic-phone" label="Телефон" variant="outlined" onChange={handlePhone} /><br />
                 <TextField id="standard-select-currency" select label={props.level} value="" onChange={handleSelect} helperText="Выберите уровень сложности">
                 {levels.map(option => (
             <MenuItem key={option.value} value={option.value}>
@@ -72,6 +94,7 @@ export default function Form(props) {
             </MenuItem>
               ))}
                 </TextField>
+                <Button onClick={handleSubmit} />
             </form>
         )
   }

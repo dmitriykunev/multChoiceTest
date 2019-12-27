@@ -8,7 +8,13 @@ const jsonParser = bodyParser.json();
 app.use(jsonParser);
 app.use(cors());
 
-app.post('/getCards', (req, res) {
+app.get('/', (res) => {
+  res.sendFile('../pusblic/index.html')
+  res.statusCode = 200;
+});
+
+
+app.get('/start', (req, res) => {
 
 });
 
