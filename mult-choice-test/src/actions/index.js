@@ -3,7 +3,10 @@ import {
     CARD_FAIL,
     PROGRESS_INCREMENT,
     RESULT_SUCCESS,
-    RESULT_FAIL
+    RESULT_FAIL,
+    FORM_LEVEL_CHANGE,
+    FORM_NAME_CHANGE,
+    FORM_PHONE_CHANGE
   } from '../constants/index'
   
   export function cardSuccess(payload) {
@@ -24,4 +27,16 @@ import {
 
   export function resultFail(payload) {
     return {type: RESULT_FAIL, payload}
+  };
+
+  export function formLevelChange(payload) {
+    return {type: FORM_LEVEL_CHANGE, payload}
+  };
+
+  export function formNameChange(payload) {
+    return {type: FORM_NAME_CHANGE, payload}
+  };
+
+  export function formPhoneChange(payload) {
+    return {type: FORM_PHONE_CHANGE, payload}
   };

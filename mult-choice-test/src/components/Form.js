@@ -16,40 +16,56 @@ const useStyles = makeStyles(theme => ({
     },
   }));
 
-const classes = useStyles();
-// const [level, setLevel] = React.useState('Elementary');
-const levels = [
+export default function Form(props) {
+  const levels = [
     {
-      value: 'El',
+      value: 'Elementar',
       label: 'Elementary',
     },
     {
-      value: 'Pre',
+      value: 'Pre-Intermediate',
       label: 'Pre-Intermediate',
     },
     {
-      value: 'Int',
+      value: 'Intermediate',
       label: 'Intermediate',
     },
     {
-      value: 'Upp',
+      value: 'Upper-Intermediate',
       label: 'Upper-Intermediate',
     },
   ];
+  const classes = useStyles();
+  // const [level, setLevel] = React.useState('Elementary');
+     const handleSelect = event => {
+       const payload = event.target.value;
+       props.dispatch({
+         type: 'FORM_LEVEL_CHANGE',
+         payload
+       });
+       };
 
+       const handleName = event => {
+         const payload = event.target.value;
+         props.dispatch({
+           type: 'FORM_NAME_CHANGE',
+           payload
+         });
+       };
 
-export default function Form() {
-    
-
-    // const handleSelect = event => {
-    //     setLevel(event.target.value);
-    //   };
+       const handlePhone = event => {
+         const payload = event.target.value;
+         props.dispatch({
+           type: 'FORM_PHONE_CHANGE',
+           payload
+         });
+       };
 
         return (
             <form className={classes.root} noValidate autoComplete='off'>
-                <TextField id="outlined-basic" label="Имя" variant="outlined" />
-                <TextField id="outlined-basic" label="Телефон" variant="outlined" />
-                <TextField id="standard-select-currency" select label="Уровень" value="" onChange={this.handleSelect} helperText="Выберите уровень сложности теста">
+                <TextField id="outlined-basic-name" label="Имя" variant="outlined" onChange={handleName} />
+                <TextField id="outlined-basic-phone" label="Телефон" variant="outlined" onChange={handlePhone} />
+                <TextField id="standard-select-currency" select label={props.level} value="" onChange={handleSelect} helperText="Выберите уровень сложности">
                 {levels.map(option => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
@@ -58,4 +74,4 @@ export default function Form() {
                 </TextField>
             </form>
         )
-    }
+  }

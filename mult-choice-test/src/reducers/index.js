@@ -3,7 +3,10 @@ import {
     CARD_FAIL,
     PROGRESS_INCREMENT,
     RESULT_SUCCESS,
-    RESULT_FAIL
+    RESULT_FAIL,
+    FORM_LEVEL_CHANGE,
+    FORM_NAME_CHANGE,
+    FORM_PHONE_CHANGE
   } from '../constants/index';
   
   const initialState = {
@@ -12,7 +15,8 @@ import {
     token: '',
     cards_passed: [],
     cards_failed: [],
-    progress: 20  
+    progress: 20,
+    level: 'Elementary'  
   };
   
   function reducer(state = initialState, action) {
@@ -27,6 +31,12 @@ import {
         return state;
       case RESULT_FAIL:
         return state;
+      case FORM_LEVEL_CHANGE:
+          return {...state, level: action.payload};
+      case FORM_NAME_CHANGE:
+          return {...state, userName: action.payload};
+      case FORM_PHONE_CHANGE:
+          return {...state, phone: action.payload};
       default:
         return state;
     }
