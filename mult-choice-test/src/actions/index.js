@@ -7,7 +7,9 @@ import {
     FORM_LEVEL_CHANGE,
     FORM_NAME_CHANGE,
     FORM_PHONE_CHANGE,
-    POPULATE_TEST
+    POPULATE_TEST,
+    CARD_SHOWED,
+    UPDATE_AVAILABLE_CARDS
   } from '../constants/index'
   
   export function cardSuccess(payload) {
@@ -44,4 +46,12 @@ import {
 
   export function populateTest(payload) {
     return {type: POPULATE_TEST, payload}
+  };
+
+  export function cardShowed(payload) {
+    return {type: CARD_SHOWED, payload}
+  };
+
+  export function updateAvailableCards(payload) {
+    return {type: UPDATE_AVAILABLE_CARDS, payload}
   };

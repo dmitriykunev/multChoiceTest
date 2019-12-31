@@ -21,7 +21,7 @@ export default function IconLabelButtons({onClick}) {
         endIcon={<Icon>send</Icon>}
         onClick={onClick}
       >
-        Send
+        Next
       </Button>     
     </div>
   );

@@ -39,8 +39,9 @@ export default function Form(props) {
     },
   ];
   const classes = useStyles();
-  // const [level, setLevel] = React.useState('Elementary');
+   const [level, setLevel] = React.useState('Elementary');
      const handleSelect = event => {
+       
        const payload = event.target.value;
        props.dispatch({
          type: 'FORM_LEVEL_CHANGE',
@@ -65,7 +66,6 @@ export default function Form(props) {
        };
 
        const handleSubmit = (event) => {
-         console.log('it works');
          event.preventDefault();
         // const payload = {
         // userName: props.userName,
@@ -74,13 +74,11 @@ export default function Form(props) {
         //}
         // const {data} = await DataTransaction.start(payload);
          const payload = Cards.cards;
-         console.log(payload);
          props.dispatch({
            type: 'POPULATE_TEST',
            payload
          })
          props.history.push('/test');
-         console.log('IT Should have worked!');
        }
 
         return (
@@ -89,8 +87,8 @@ export default function Form(props) {
                 <TextField id="outlined-basic-phone" label="Телефон" variant="outlined" onChange={handlePhone} /><br />
                 <TextField id="standard-select-currency" select label={props.level} value="" onChange={handleSelect} helperText="Выберите уровень сложности">
                 {levels.map(option => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
+            <MenuItem key={option.value} value={option.value} onClick={()=> setLevel(level)}>
+              {option.level}
             </MenuItem>
               ))}
                 </TextField>

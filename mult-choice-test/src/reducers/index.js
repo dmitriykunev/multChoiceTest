@@ -7,7 +7,9 @@ import {
     FORM_LEVEL_CHANGE,
     FORM_NAME_CHANGE,
     FORM_PHONE_CHANGE,
-    POPULATE_TEST
+    POPULATE_TEST,
+    CARD_SHOWED,
+    UPDATE_AVAILABLE_CARDS
   } from '../constants/index';
   
   const initialState = {
@@ -15,6 +17,7 @@ import {
     phone: '',
     token: '',
     cards: [],
+    cards_shown: [],
     cards_passed: [],
     cards_failed: [],
     progress: 5,
@@ -27,8 +30,13 @@ import {
         return state;
       case CARD_FAIL:
         return state;
+      case CARD_SHOWED:
+        const newCard = state.cards_shown.push(action.cardShown);
+        return {...state, newCard};
+      case UPDATE_AVAILABLE_CARDS:
+        return {...state, cards: action.payload};
       case PROGRESS_INCREMENT:
-        return state;
+        return {...state, progress: action.payload};
       case RESULT_SUCCESS:
         return state;
       case RESULT_FAIL:

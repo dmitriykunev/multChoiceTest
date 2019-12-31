@@ -2,7 +2,7 @@
     "cards": [
     {
         "card": {
-            "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "question": "Это первый вопрос над которым стоит поработать",
             "a": "my first guess answer",
             "b": "my second guess answer",
             "c": "my third guess answer",
@@ -15,7 +15,7 @@
     },
     {
         "card": {
-            "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "question": "Это второй вопрос над которым стоит поработать",
             "a": "my first guess answer",
             "b": "my second guess answer",
             "c": "my third guess answer",
@@ -28,7 +28,7 @@
     },
     {
         "card": {
-            "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "question": "Это третий вопрос над которым стоит поработать",
             "a": "my first guess answer",
             "b": "my second guess answer",
             "c": "my third guess answer",
@@ -41,7 +41,7 @@
     },
     {
         "card": {
-            "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "question": "Это четвертый вопрос над которым стоит поработать",
             "a": "my first guess answer",
             "b": "my second guess answer",
             "c": "my third guess answer",
@@ -54,7 +54,7 @@
     },
     {
         "card": {
-            "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "question": "Это пятый вопрос над которым стоит поработать",
             "a": "my first guess answer",
             "b": "my second guess answer",
             "c": "my third guess answer",
@@ -67,7 +67,7 @@
     },
     {
         "card": {
-            "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "question": "Это шестой вопрос над которым стоит поработать",
             "a": "my first guess answer",
             "b": "my second guess answer",
             "c": "my third guess answer",
