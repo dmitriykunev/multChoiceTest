@@ -12,7 +12,8 @@ import {
     CARD_SHOWED,
     UPDATE_AVAILABLE_CARDS,
     OPTION_UPDATE,
-    UPDATE_CORRECT_ANSWER
+    UPDATE_CORRECT_ANSWER,
+    CLEAR_PREVIOUS_ANSWER
   } from '../constants/index'
   
   export function cardSuccess(payload) {
@@ -69,4 +70,8 @@ import {
 
   export function updateCorrectAnswer(payload) {
     return {type: UPDATE_CORRECT_ANSWER, payload}
+  };
+
+  export function clearPreviousAnswer() {
+    return {type: CLEAR_PREVIOUS_ANSWER}
   };

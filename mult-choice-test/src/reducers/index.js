@@ -12,7 +12,8 @@ import {
     CARD_SHOWED,
     UPDATE_AVAILABLE_CARDS,
     OPTION_UPDATE,
-    UPDATE_CORRECT_ANSWER
+    UPDATE_CORRECT_ANSWER,
+    CLEAR_PREVIOUS_ANSWER
   } from '../constants/index';
   
   const initialState = {
@@ -52,6 +53,8 @@ import {
         return {...state, answer: action.payload};
       case POPULATE_TEST:
         return {...state, cards: action.payload};
+      case CLEAR_PREVIOUS_ANSWER:
+        return {...state, answer: ''};
       case UPDATE_CORRECT_ANSWER:
         return {...state, correct_answer: action.payload};
       case GENERATE_TOKEN:

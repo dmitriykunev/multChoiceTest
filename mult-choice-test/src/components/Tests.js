@@ -16,14 +16,15 @@ cardsMapper = () => {
     const arrayCopy = cards.map((item)=> ({...item}));
     const card = arrayCopy.splice(0, 1);
     if (card.length === 0) {
-    //return this.props.history.push('/result');
-       return this.props.history.push('/');
+    return this.props.history.push('/result');
+       //return this.props.history.push('/');
     }
     const payload = card[0].answer;
     this.props.dispatch({
         type: 'UPDATE_CORRECT_ANSWER',
         payload
     })
+    
     
     return (<Card question={card[0].card.question} 
         optionA={card[0].card.a} 
@@ -45,13 +46,15 @@ updateCards = ()=> {
         type: 'CARD_SHOWED',
         cardShown
    });
+   this.props.dispatch({
+    type: 'CLEAR_PREVIOUS_ANSWER'
+})
 }
 
 handleFailSuccess = () => {
     const userAnswer = this.props.answer;
     const correctAnswer = this.props.correct_answer;
     const payload = this.props.cards[0];
-    console.log(payload);
     if(userAnswer === correctAnswer) {
         this.props.dispatch({
             type: 'CARD_SUCCESS',
