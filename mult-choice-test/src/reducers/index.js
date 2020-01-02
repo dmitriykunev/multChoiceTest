@@ -4,12 +4,15 @@ import {
     PROGRESS_INCREMENT,
     RESULT_SUCCESS,
     RESULT_FAIL,
+    GENERATE_TOKEN,
     FORM_LEVEL_CHANGE,
     FORM_NAME_CHANGE,
     FORM_PHONE_CHANGE,
     POPULATE_TEST,
     CARD_SHOWED,
-    UPDATE_AVAILABLE_CARDS
+    UPDATE_AVAILABLE_CARDS,
+    OPTION_UPDATE,
+    UPDATE_CORRECT_ANSWER
   } from '../constants/index';
   
   const initialState = {
@@ -20,6 +23,8 @@ import {
     cards_shown: [],
     cards_passed: [],
     cards_failed: [],
+    answer: '',
+    correct_answer: '',
     progress: 5,
     level: 'Elementary'  
   };
@@ -27,9 +32,11 @@ import {
   function reducer(state = initialState, action) {
     switch (action.type) {
       case CARD_SUCCESS:
-        return state;
+        const newSuccessCard = state.cards_passed.push(action.payload);
+        return {...state, newSuccessCard};
       case CARD_FAIL:
-        return state;
+        const newFailCard = state.cards_failed.push(action.payload);
+        return {...state, newFailCard};
       case CARD_SHOWED:
         const newCard = state.cards_shown.push(action.cardShown);
         return {...state, newCard};
@@ -41,8 +48,14 @@ import {
         return state;
       case RESULT_FAIL:
         return state;
+      case OPTION_UPDATE:
+        return {...state, answer: action.payload};
       case POPULATE_TEST:
         return {...state, cards: action.payload};
+      case UPDATE_CORRECT_ANSWER:
+        return {...state, correct_answer: action.payload};
+      case GENERATE_TOKEN:
+        return {...state, token: action.token};
       case FORM_LEVEL_CHANGE:
           return {...state, level: action.payload};
       case FORM_NAME_CHANGE:

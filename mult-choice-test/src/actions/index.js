@@ -8,8 +8,11 @@ import {
     FORM_NAME_CHANGE,
     FORM_PHONE_CHANGE,
     POPULATE_TEST,
+    GENERATE_TOKEN,
     CARD_SHOWED,
-    UPDATE_AVAILABLE_CARDS
+    UPDATE_AVAILABLE_CARDS,
+    OPTION_UPDATE,
+    UPDATE_CORRECT_ANSWER
   } from '../constants/index'
   
   export function cardSuccess(payload) {
@@ -54,4 +57,16 @@ import {
 
   export function updateAvailableCards(payload) {
     return {type: UPDATE_AVAILABLE_CARDS, payload}
+  };
+
+  export function generateToken(payload) {
+    return {type: GENERATE_TOKEN, payload}
+  };
+
+  export function optionUpdate(payload) {
+    return {type: OPTION_UPDATE, payload}
+  };
+
+  export function updateCorrectAnswer(payload) {
+    return {type: UPDATE_CORRECT_ANSWER, payload}
   };

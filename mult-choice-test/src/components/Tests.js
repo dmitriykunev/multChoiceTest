@@ -16,10 +16,14 @@ cardsMapper = () => {
     const arrayCopy = cards.map((item)=> ({...item}));
     const card = arrayCopy.splice(0, 1);
     if (card.length === 0) {
-       //return this.props.history.push('/result');
-       return this.props.history.push('/form');
+    //return this.props.history.push('/result');
+       return this.props.history.push('/');
     }
-    //const payload = card;
+    const payload = card[0].answer;
+    this.props.dispatch({
+        type: 'UPDATE_CORRECT_ANSWER',
+        payload
+    })
     
     return (<Card question={card[0].card.question} 
         optionA={card[0].card.a} 
@@ -32,7 +36,7 @@ cardsMapper = () => {
 updateCards = ()=> {
     const {cards} = this.props;
     const payload = cards.map((item)=> ({...item}));
-    const cardShown = payload.splice(0, 1)
+    const [cardShown] = payload.splice(0, 1)
     this.props.dispatch({
         type: 'UPDATE_AVAILABLE_CARDS',
         payload
@@ -43,13 +47,32 @@ updateCards = ()=> {
    });
 }
 
+handleFailSuccess = () => {
+    const userAnswer = this.props.answer;
+    const correctAnswer = this.props.correct_answer;
+    const payload = this.props.cards[0];
+    console.log(payload);
+    if(userAnswer === correctAnswer) {
+        this.props.dispatch({
+            type: 'CARD_SUCCESS',
+            payload
+        })
+    } else {
+        this.props.dispatch({
+            type: 'CARD_FAIL',
+            payload
+        })
+    }
+}
+
 handleNext = (event) => {
     const payload = this.props.progress + 5;
     this.props.dispatch({
           type: 'PROGRESS_INCREMENT',
           payload
       });
-      this.updateCards();
+    this.updateCards();
+    this.handleFailSuccess();
 }
 
     render () {

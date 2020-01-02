@@ -15,8 +15,7 @@ const useStyles = makeStyles(theme => ({
       '& .MuiTextField-root': {
         margin: theme.spacing(1),
         width: 200,
-      },
-    },
+      }},
   }));
 
 export default function Form(props) {
@@ -39,7 +38,7 @@ export default function Form(props) {
     },
   ];
   const classes = useStyles();
-   const [level, setLevel] = React.useState('Elementary');
+  //  const [level, setLevel] = React.useState('Elementary');
      const handleSelect = event => {
        
        const payload = event.target.value;
@@ -77,18 +76,25 @@ export default function Form(props) {
          props.dispatch({
            type: 'POPULATE_TEST',
            payload
-         })
+         });
+         const token = Math.random().toString(36).substr(2, 25);
+         props.dispatch({
+           type: 'GENERATE_TOKEN',
+           token
+         });
          props.history.push('/test');
        }
 
         return (
             <form className={classes.root} noValidate autoComplete='off'>
-                <TextField id="outlined-basic-name" label="Имя" variant="outlined" onChange={handleName} />
-                <TextField id="outlined-basic-phone" label="Телефон" variant="outlined" onChange={handlePhone} /><br />
+                <TextField id="outlined-basic-name" label="Имя" variant="outlined" onBlur={handleName} />
+                <TextField id="outlined-basic-phone" label="Телефон" variant="outlined" onBlur={handlePhone} /><br />
+                
+                
                 <TextField id="standard-select-currency" select label={props.level} value="" onChange={handleSelect} helperText="Выберите уровень сложности">
                 {levels.map(option => (
-            <MenuItem key={option.value} value={option.value} onClick={()=> setLevel(level)}>
-              {option.level}
+            <MenuItem key={option.value} value={option.value} >
+              {option.label}
             </MenuItem>
               ))}
                 </TextField>
