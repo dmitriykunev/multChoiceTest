@@ -7,7 +7,12 @@ const mapStateToProps = state => {
 };
 
 class Result extends Component {
-
+    
+    componentWillMount() {
+        if(!this.props.token) {
+            this.props.history.push('/');
+        }
+    }
 
     handleResponse = () => {
         const correctAnswersNumber = this.props.cards_passed.length;
@@ -20,12 +25,18 @@ class Result extends Component {
         })
     }
 
+    handleTotal = () => {
+        const totalCards = this.props.cards_shown.length;
+        return totalCards
+    }
+
     render () {
     const failedCards = this.failedCardsMapper();
         return (
             <div>
-                <p>{this.props.userName} Вы правильно ответили на {this.handleResponse()} из 20 вопросов</p>
+                <p>{this.props.userName} Вы правильно ответили на {this.handleResponse()} из {this.handleTotal()} вопросов</p>
                 <br />
+                <p>Ниже перечень вопросов, на которые, Вы дали неправильный ответ</p>
                 {failedCards}
                 <br />
             </div>
