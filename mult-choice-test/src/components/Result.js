@@ -21,7 +21,7 @@ class Result extends Component {
 
     failedCardsMapper = () => {
         return this.props.cards_failed.map((elem) => {
-            return failedCards(elem.card.question, elem.card.a, elem.card.b, elem.card.c, elem.card.d, elem.answer, elem.id)
+            return failedCards(elem.card.question, elem.card.a, elem.card.b, elem.card.c, elem.card.d, elem.answer, elem.id, elem.theory)
         })
     }
 
@@ -33,12 +33,14 @@ class Result extends Component {
     render () {
     const failedCards = this.failedCardsMapper();
         return (
-            <div>
+            <div className='resultPage'>
                 <p>{this.props.userName} Вы правильно ответили на {this.handleResponse()} из {this.handleTotal()} вопросов</p>
                 <br />
                 <p>Ниже перечень вопросов, на которые, Вы дали неправильный ответ</p>
+                
                 {failedCards}
                 <br />
+                
             </div>
         )
     }
