@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import AdminPanel from './components/panel.js';
 import Footer from './components/footer';
 import './index.css';
@@ -10,18 +10,24 @@ const mapStateToProps = state => {
 
 class App extends Component {
 
-  handleAuthorize =(token) => {
-    if(token) {
-      return (<div><AdminPanel /><Footer /></div>);
-    } else {
-    return (this.props.history.push('/whoTheFuckAreYou'))
+  componentWillMount() {
+    const token = localStorage.getItem('token');
+    if(!token) {
+      this.props.history.push('/whoTheFuckAreYou')
     }
+  }
+  
+    
     // const token = localStorage.getItem('token');
     // localStorage.setItem('token', this.state.token);
-  }
+  
   render () {
+    
   return (
-      {this.handleAuthorize(true)}
+    <div>
+      <AdminPanel />
+      <Footer />
+    </div>
     )
   }
 }

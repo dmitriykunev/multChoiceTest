@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('wall.jpg');
 }
 
 code {
@@ -16,4 +17,15 @@ code {
   position: -webkit-sticky;
   position: sticky;
   text-align: center;
+}
+
+h2 {
+  padding: 10px;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 300px;
 }

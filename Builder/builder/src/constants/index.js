@@ -1,1 +1,1 @@
-export const CARD_SUCCESS = 'CARD_SUCCESS';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';

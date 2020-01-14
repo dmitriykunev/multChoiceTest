@@ -1,9 +1,9 @@
 import {
-    CARD_SUCCESS
+    LOGIN_SUCCESS
   } from '../constants/index'
   
-  export function cardSuccess(payload) {
-    return {type: CARD_SUCCESS, payload}
+  export function loginSuccess(payload) {
+    return {type: LOGIN_SUCCESS, payload}
   };
   
   
