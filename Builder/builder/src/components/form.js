@@ -48,7 +48,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Form() {
+export default function Form(props) {
+  
   const classes = useStyles();
   const [values, setValues] = React.useState({
     login: '',
@@ -81,7 +82,7 @@ export default function Form() {
     //   console.log(payload);
     //   const data = await DataTransaction.login(payload);
       
-      this.props.dispatch({
+      props.dispatch({
           type: 'LOGIN_SUCCESS',
         //   data
           payload
