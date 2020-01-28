@@ -4,7 +4,7 @@ import { Card } from "../cards/card.entity";
 export const databaseProviders = [
   {
     provide: "SEQUELIZE",
-    usefactory: async () => {
+    useFactory: async () => {
       const sequelize = new Sequelize({
         dialect: "mysql",
         host: "localhost",

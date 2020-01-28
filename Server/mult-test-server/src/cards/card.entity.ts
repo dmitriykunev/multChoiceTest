@@ -2,8 +2,10 @@ import { Table, Column, Model } from "sequelize-typescript";
 
 @Table
 export class Card extends Model<Card> {
-  @Column
-  id: string;
+  @Column({
+    primaryKey: true
+  })
+  cardId: string;
 
   @Column
   question: string;

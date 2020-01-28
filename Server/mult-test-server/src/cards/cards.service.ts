@@ -10,7 +10,7 @@ export class CardsService {
 
   async create(createCardDto: CreateCardDto): Promise<Card> {
     const card = new Card();
-    card.id = createCardDto.id;
+    card.cardId = createCardDto.cardId;
     card.question = createCardDto.question;
     card.answer = createCardDto.answer;
     card.theory = createCardDto.theory;
