@@ -1,13 +1,15 @@
-import { Controller, Get, Post, Body } from "@nestjs/common";
+import { Controller, Get, Post, Body, UseGuards } from "@nestjs/common";
 import { CreateCardDto } from "./dto/create-card.dto";
 import { CardsService } from "./cards.service";
 import { Card } from "./card.entity";
+import { AuthGuard } from "./auth.guard";
 
 @Controller("cards")
 export class CardsController {
   constructor(private readonly cardsService: CardsService) {}
 
   @Post()
+  @UseGuards(AuthGuard)
   async create(@Body() createCardDto: CreateCardDto) {
     await this.cardsService.create(createCardDto);
   }

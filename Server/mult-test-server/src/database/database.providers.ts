@@ -12,24 +12,9 @@ export const databaseProviders = [
         port: 3306,
         username: "root",
         password: "37100644",
-        database: "cards"
+        database: "multchoicetest"
       });
       sequelize.addModels([Card]);
-      await sequelize.sync();
-      return sequelize;
-    }
-  },
-  {
-    provide: "SEQUELIZE",
-    useFactory: async () => {
-      const sequelize = new Sequelize({
-        dialect: "mysql",
-        host: "localhost",
-        port: 3306,
-        username: "root",
-        password: "37100644",
-        database: "clients"
-      });
       sequelize.addModels([Client]);
       await sequelize.sync();
       return sequelize;
