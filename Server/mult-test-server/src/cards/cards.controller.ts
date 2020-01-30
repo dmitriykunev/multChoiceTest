@@ -12,8 +12,28 @@ export class CardsController {
     await this.cardsService.create(createCardDto);
   }
 
-  @Get()
-  async findAll(): Promise<Card[]> {
-    return this.cardsService.findAll();
+  @Get("advanced")
+  async findAllAdvanced(): Promise<Card[]> {
+    return this.cardsService.findAllAdvanced();
+  }
+
+  @Get("upperintermediate")
+  async findAllUpperIntermediate(): Promise<Card[]> {
+    return this.cardsService.findAllUpperIntermediate();
+  }
+
+  @Get("intermediate")
+  async findAllIntermediate(): Promise<Card[]> {
+    return this.cardsService.findAllIntermediate();
+  }
+
+  @Get("preintermediate")
+  async findAllPreIntermediate(): Promise<Card[]> {
+    return this.cardsService.findAllPreIntermediate();
+  }
+
+  @Get("elementary")
+  async findAllElementary(): Promise<Card[]> {
+    return this.cardsService.findAllElementary();
   }
 }

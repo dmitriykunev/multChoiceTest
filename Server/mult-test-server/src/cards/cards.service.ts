@@ -10,7 +10,6 @@ export class CardsService {
 
   async create(createCardDto: CreateCardDto): Promise<Card> {
     const card = new Card();
-    card.cardId = createCardDto.cardId;
     card.question = createCardDto.question;
     card.answer = createCardDto.answer;
     card.theory = createCardDto.theory;
@@ -19,11 +18,46 @@ export class CardsService {
     card.option_b = createCardDto.option_b;
     card.option_c = createCardDto.option_c;
     card.option_d = createCardDto.option_d;
-
     return card.save();
   }
 
-  async findAll(): Promise<Card[]> {
-    return this.cardsRepository.findAll<Card>();
+  async findAllAdvanced(): Promise<Card[]> {
+    return this.cardsRepository.findAll<Card>({
+      where: {
+        level: "Advanced"
+      }
+    });
+  }
+
+  async findAllUpperIntermediate(): Promise<Card[]> {
+    return this.cardsRepository.findAll<Card>({
+      where: {
+        level: "UpperIntermediate"
+      }
+    });
+  }
+
+  async findAllIntermediate(): Promise<Card[]> {
+    return this.cardsRepository.findAll<Card>({
+      where: {
+        level: "Intermediate"
+      }
+    });
+  }
+
+  async findAllPreIntermediate(): Promise<Card[]> {
+    return this.cardsRepository.findAll<Card>({
+      where: {
+        level: "PreIntermediate"
+      }
+    });
+  }
+
+  async findAllElementary(): Promise<Card[]> {
+    return this.cardsRepository.findAll<Card>({
+      where: {
+        level: "Elementary"
+      }
+    });
   }
 }

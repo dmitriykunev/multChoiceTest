@@ -1,5 +1,4 @@
 export class CreateCardDto {
-  readonly cardId: string;
   readonly question: string;
   readonly answer: string;
   readonly level: string;

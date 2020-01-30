@@ -3,9 +3,11 @@ import { Table, Column, Model } from "sequelize-typescript";
 @Table
 export class Card extends Model<Card> {
   @Column({
-    primaryKey: true
+    primaryKey: true,
+    autoIncrement: true,
+    allowNull: false
   })
-  cardId: string;
+  cardId: number;
 
   @Column
   question: string;
