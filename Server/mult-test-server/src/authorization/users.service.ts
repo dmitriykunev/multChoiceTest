@@ -18,12 +18,16 @@ export class UsersService {
   }
 
   async authorize(checkIdentity): Promise<User[]> {
-    const result = this.usersRepository.findAll<User>({
+    const result = await this.usersRepository.findAll<User>({
       where: {
         username: checkIdentity.username,
         password: checkIdentity.password
       }
     });
-    return result;
+    if (result.length === 0) {
+      throw new UnauthorizedException();
+    } else {
+      return result;
+    }
   }
 }

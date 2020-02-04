@@ -1,6 +1,7 @@
 import { Sequelize } from "sequelize-typescript";
 import { Card } from "../cards/card.entity";
 import { Client } from "../clients/client.entity";
+import { User } from "../authorization/user.entity";
 
 export const databaseProviders = [
   {
@@ -16,6 +17,7 @@ export const databaseProviders = [
       });
       sequelize.addModels([Card]);
       sequelize.addModels([Client]);
+      sequelize.addModels([User]);
       await sequelize.sync();
       return sequelize;
     }

@@ -10,14 +10,15 @@ export class AuthController {
 
   @Post("login")
   async authorize(@Body() checkIdentity: CheckIdentity): Promise<User[]> {
-    await result: Object = this.usersService.authorize(checkIdentity);
-    if(result) {
-        return result;
-    } throw new UnauthorizedException;
+    let result: any = {};
+    result = await this.usersService.authorize(checkIdentity);
+    if (result) {
+      return result;
+    }
   }
 
-  @Post('register')
+  @Post("register")
   async create(@Body() createUserDto: CreateUserDto) {
-      await this.usersService.create(createUserDto)
+    await this.usersService.create(createUserDto);
   }
 }
