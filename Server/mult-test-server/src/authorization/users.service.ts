@@ -30,4 +30,18 @@ export class UsersService {
       return result;
     }
   }
+
+  async authorizeToken(checkToken): Promise<User[]> {
+    const result = await this.usersRepository.findAll<User>({
+      where: {
+        token: checkToken.token,
+        username: checkToken.username
+      }
+    });
+    if (result.length === 0) {
+      throw new UnauthorizedException();
+    } else {
+      return result;
+    }
+  }
 }

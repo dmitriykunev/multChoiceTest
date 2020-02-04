@@ -1,24 +1,35 @@
-import axios from 'axios';
+import axios from "axios";
 
-const URL = 'http://localhost:3001';
+const URL = "http://localhost:3001";
 // const URL = 'http://192.168.0.229:3001';
 
 class DataTransaction {
   login(payload) {
-    return axios.post(URL + '/login', payload);
+    return axios.post(URL + "/admin/login", payload);
   }
-  
   token(payload) {
-    return axios.post(URL + '/token', payload);
+    return axios.get(URL + "/admin/token", payload);
   }
-  modify(payload) {
-    return axios.put(URL + '/modify', payload);
+  register(payload) {
+    return axios.post(URL + "/admin/register", payload);
   }
-  getUsers() {
-    return axios.get(URL + '/getUsers');
+  cards(payload) {
+    return axios.post(URL + "/cards", payload);
   }
-  remove(payload) {
-    return axios.post(URL + '/remove', payload);
+  cardsAdvanced() {
+    return axios.get(URL + "/cards/advanced");
+  }
+  cardsUppperIntermediate() {
+    return axios.get(URL + "/cards/upperintermediate");
+  }
+  cardsIntermediate() {
+    return axios.get(URL + "/cards/intermediate");
+  }
+  cardsPreIntermediate() {
+    return axios.get(URL + "/cards/preintermediate");
+  }
+  cardsElementary() {
+    return axios.get(URL + "/cards/elementary");
   }
 }
 
