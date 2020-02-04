@@ -11,6 +11,7 @@ const mapStateToProps = state => {
 
 class App extends Component {
   constructor(props) {
+    super(props);
     const token = localStorage.getItem("token");
     const username = localStorage.getItem("username");
     const data = {

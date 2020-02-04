@@ -87,9 +87,9 @@ export default function Form(props) {
       });
       localStorage.setItem("token", data[0].token);
       localStorage.setItem("username", data[0].username);
-      this.props.history.push("/");
+      props.history.push("/");
     } else {
-      this.props.history.push("/whoTheFuckAreYou");
+      props.history.push("/whoTheFuckAreYou");
     }
   };
 
