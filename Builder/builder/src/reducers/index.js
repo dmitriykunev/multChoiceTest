@@ -1,4 +1,4 @@
-import { LOGIN_SUCCESS } from "../constants/index";
+import { LOGIN_SUCCESS, INITIATE_APPLICATION } from "../constants/index";
 
 const initialState = {
   username: "",
@@ -15,6 +15,13 @@ const initialState = {
 function reducer(state = initialState, action) {
   switch (action.type) {
     case LOGIN_SUCCESS:
+      return {
+        ...state,
+        username: action.data[0].username,
+        role: action.data[0].role,
+        token: action.data[0].token
+      };
+    case INITIATE_APPLICATION:
       return {
         ...state,
         username: action.data[0].username,

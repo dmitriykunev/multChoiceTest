@@ -14,33 +14,45 @@ class App extends Component {
     super(props);
     const token = localStorage.getItem("token");
     const username = localStorage.getItem("username");
-    const data = {
+    let data = {
       username: username,
       token: token
     };
+
     async function validate(data) {
-      let result = [];
+      let payload = [];
       try {
-        result = await DataTransaction.token(data);
+        payload = await DataTransaction.token(data);
       } catch (e) {
         props.history.push("/whoTheFuckAreYou");
       }
-      return result;
+      return payload;
     }
-
-    if (validate(data)) {
-      this.props.history.push("/");
-    }
-  }
-
-  // localStorage.setItem('token', this.state.token);
-
-  render() {
-    return (
-      <div>
+    const { result } = validate(data);
+    console.log(result);
+    if (result) {
+      props.dispatch({
+        type: "INITIATE_APPLICATION",
+        result
+      });
+      const render = <div>
         <AdminPanel />
         <Footer />
       </div>
+      // props.history.push("/");
+    } else {
+      props.history.push("/whoTheFuckAreYou");
+    }
+  }
+
+  render()
+  {
+    console.log(result);
+    return (
+      // <div>
+      //   <AdminPanel />
+      //   <Footer />
+      // </div>
     );
   }
 }

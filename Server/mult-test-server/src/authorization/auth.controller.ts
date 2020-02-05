@@ -24,7 +24,7 @@ export class AuthController {
     }
   }
 
-  @Get("token")
+  @Post("token")
   async authorizeToken(@Body() checkToken: CheckToken): Promise<User[]> {
     let result: any = {};
     if (checkToken.token === undefined) {

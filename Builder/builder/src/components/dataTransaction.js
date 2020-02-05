@@ -8,7 +8,7 @@ class DataTransaction {
     return axios.post(URL + "/admin/login", payload);
   }
   token(payload) {
-    return axios.get(URL + "/admin/token", payload);
+    return axios.post(URL + "/admin/token", payload);
   }
   register(payload) {
     return axios.post(URL + "/admin/register", payload);
