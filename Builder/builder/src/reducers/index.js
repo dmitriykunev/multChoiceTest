@@ -4,6 +4,7 @@ const initialState = {
   username: "",
   role: "",
   token: "",
+  currentContent: "",
   card: { question: "", a: "", b: "", c: "", d: "" },
   answer: "",
   level: "",
@@ -22,11 +23,12 @@ function reducer(state = initialState, action) {
         token: action.data[0].token
       };
     case INITIATE_APPLICATION:
+      console.log(action);
       return {
         ...state,
-        username: action.data[0].username,
-        role: action.data[0].role,
-        token: action.data[0].token
+        username: action.data.username,
+        role: action.data.role,
+        token: action.data.token
       };
 
     default:

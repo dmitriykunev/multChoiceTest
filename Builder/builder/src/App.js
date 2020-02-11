@@ -1,6 +1,5 @@
-import React, { Component } from "react";
-import AdminPanel from "./components/panel.js";
-import Footer from "./components/footer";
+import { Component, React } from "react";
+import MainAdminDashboard from "./components/mainAdminDashboard";
 import "./index.css";
 import { connect } from "react-redux";
 import DataTransaction from "./components/dataTransaction";
@@ -14,45 +13,46 @@ class App extends Component {
     super(props);
     const token = localStorage.getItem("token");
     const username = localStorage.getItem("username");
-    let data = {
+    const payload = {
       username: username,
       token: token
     };
 
-    async function validate(data) {
-      let payload = [];
+    const validate = async payload => {
+      console.log("before");
       try {
-        payload = await DataTransaction.token(data);
+        return await DataTransaction.token(payload);
       } catch (e) {
-        props.history.push("/whoTheFuckAreYou");
+        console.log("caught an error");
+        this.props.history.push("/whoTheFuckAreYou");
       }
-      return payload;
-    }
-    const { result } = validate(data);
-    console.log(result);
-    if (result) {
-      props.dispatch({
-        type: "INITIATE_APPLICATION",
-        result
-      });
-      const render = <div>
-        <AdminPanel />
-        <Footer />
-      </div>
-      // props.history.push("/");
-    } else {
-      props.history.push("/whoTheFuckAreYou");
-    }
+    };
+    const data = validate(payload);
+    this.props.dispatch({
+      type: "INITIATE_APPLICATION",
+      data
+    });
   }
+  // userValidationCheck = () => {
+  //   if (payload) {
+  //     // console.log(validate);
+  //     this.props.dispatch({
+  //       type: "INITIATE_APPLICATION",
+  //       payload
+  //     });
 
-  render()
-  {
-    console.log(result);
+  //     this.props.history.push("/");
+  //     return ;
+  //   } else {
+  //     this.props.history.push("/whoTheFuckAreYou");
+  //   }
+  // };
+
+  render() {
     return (
-      // <div>
-      //   <AdminPanel />
-      //   <Footer />
-      // </div>
+      <div>
+        <MainAdminDashboard />
+      </div>
     );
   }
 }
