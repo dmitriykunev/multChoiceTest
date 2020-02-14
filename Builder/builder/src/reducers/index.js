@@ -1,10 +1,16 @@
-import { LOGIN_SUCCESS, INITIATE_APPLICATION } from "../constants/index";
+import {
+  LOGIN_SUCCESS,
+  TOKEN_OK,
+  TOKEN_FAIL,
+  ROLE_OK,
+  HANDLE_SIDEBAR_ITEM_CHOSEN
+} from "../constants/index";
 
 const initialState = {
   username: "",
   role: "",
   token: "",
-  currentContent: "",
+  sidebarItemChosen: "dashboard",
   card: { question: "", a: "", b: "", c: "", d: "" },
   answer: "",
   level: "",
@@ -22,15 +28,19 @@ function reducer(state = initialState, action) {
         role: action.data[0].role,
         token: action.data[0].token
       };
-    case INITIATE_APPLICATION:
-      console.log(action);
+    case TOKEN_OK:
       return {
         ...state,
         username: action.data.username,
         role: action.data.role,
         token: action.data.token
       };
-
+    case TOKEN_FAIL:
+      return initialState;
+    case ROLE_OK:
+      return state;
+    case HANDLE_SIDEBAR_ITEM_CHOSEN:
+      return { ...state, sidebarItemChosen: action.value };
     default:
       return state;
   }

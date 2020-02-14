@@ -77,9 +77,9 @@ export default function Form(props) {
       username: values.login,
       password: values.password
     };
-    console.log(payload);
+
     const { data } = await DataTransaction.login(payload);
-    console.log(data);
+
     if (data) {
       props.dispatch({
         type: "LOGIN_SUCCESS",
@@ -87,7 +87,7 @@ export default function Form(props) {
       });
       localStorage.setItem("token", data[0].token);
       localStorage.setItem("username", data[0].username);
-      props.history.push("/");
+      props.history.push("/admin");
     } else {
       props.history.push("/whoTheFuckAreYou");
     }
