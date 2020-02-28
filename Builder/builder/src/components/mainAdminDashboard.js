@@ -15,7 +15,6 @@ const mapStateToProps = state => {
 
 class MainAdminDashboard extends Component {
   render() {
-    console.log(this.props);
     return (
       <div>
         <AdminPanel {...this.props} />

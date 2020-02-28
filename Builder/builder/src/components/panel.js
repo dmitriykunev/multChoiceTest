@@ -17,6 +17,8 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import AllInboxIcon from "@material-ui/icons/AllInbox";
 import ListItem from "@material-ui/core/ListItem";
+import MarkunreadMailboxIcon from "@material-ui/icons/MarkunreadMailbox";
+import AssignmentIcon from "@material-ui/icons/Assignment";
 import Content from "./content";
 
 const drawerWidth = 240;
@@ -95,6 +97,37 @@ export default function AdminPanel(props) {
     setOpen(false);
   };
 
+  const icons = [
+    {
+      name: "Dashboard",
+      icon: <DashboardIcon />
+    },
+    {
+      name: "Inbox",
+      icon: <AllInboxIcon />
+    },
+    {
+      name: "New",
+      icon: <MarkunreadMailboxIcon />
+    },
+    {
+      name: "Cards",
+      icon: <AssignmentIcon />
+    }
+  ];
+
+  // const handleIndex = index => {
+  //   //console.log(index);
+  //   const icons = [
+  //     <DashboardIcon />,
+  //     <AllInboxIcon />,
+  //     <MarkunreadMailboxIcon />,
+  //     <AssignmentIcon />
+  //   ];
+
+  //   return icons[index];
+  // };
+
   const handleSidebarItemChosen = value => {
     props.dispatch({
       type: "HANDLE_SIDEBAR_ITEM_CHOSEN",
@@ -153,38 +186,22 @@ export default function AdminPanel(props) {
           </div>
           <Divider />
           <List>
-            {["Dashboard", "Inbox", "New", "Cards"].map((text, index) => (
+            {icons.map((item, index) => (
               <ListItem
-                onClick={() => handleSidebarItemChosen(text)}
+                onClick={() => handleSidebarItemChosen(item.name)}
                 button
-                key={text}
+                key={item.name}
               >
-                <ListItemIcon>
-                  {index % 2 === 0 ? <DashboardIcon /> : <AllInboxIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.name} />
               </ListItem>
             ))}
           </List>
           <Divider />
-          {/* <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List> */}
         </Drawer>
         <main className={classes.content}>
           <div className={classes.toolbar} />
           <Content />
-          {/* <Typography paragraph>
-          Это приложение помогает создать базу данных билетов (карточек) для тесна на множественный выбор для разных уровней сложности.
-          Приложение написано под определенную структуру базы данных и использование его в других целях требует переосмысление архитектуры таблиц и выборки из базы.
-          Так же всем заинтересованным для удобочитаемости кода придется переосмыслить структуру Actions для Redux Store. Приложение использует ORM Sequelize для упрощения
-           работы с запросами к базе данных. 
-        </Typography> */}
         </main>
       </div>
     </div>

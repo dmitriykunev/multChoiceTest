@@ -29,13 +29,15 @@ const payload = {
 class App extends Component {
   constructor(props) {
     super(props);
-
+    console.log("First me!");
+    setTimeout(() => {}, 3000);
+    console.log("Another me in 3 sec!");
     DataTransactions.token(payload).then(authState => {
       if (!authState.data[0].token) {
         this.props.dispatch({
           type: "TOKEN_FAIL"
         });
-        this.props.history.push("/whoTheFuckAreYou");
+        //this.props.history.push("/whoTheFuckAreYou");
       } else {
         const data = authState.data[0];
 

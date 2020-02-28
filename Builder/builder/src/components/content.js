@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../index.css";
 import { connect } from "react-redux";
+import Cards from "./content/cards";
 
 const mapStateToProps = state => {
   return {
@@ -15,15 +16,19 @@ class Content extends Component {
   handleContent = value => {
     switch (value) {
       case "Dashboad":
-        return <div>THis is Dashboard</div>;
+        return <div>This is Dashboard</div>;
       case "Inbox":
         return <div>This is Inbox</div>;
       case "New":
-        return <div>THis is New</div>;
+        return <div>This is New</div>;
       case "Cards":
-        return <div>This is Cards</div>;
+        return (
+          <div>
+            <Cards />
+          </div>
+        );
       default:
-        return <div>THis is Dashboard</div>;
+        return <div>Default View</div>;
     }
   };
   render() {
