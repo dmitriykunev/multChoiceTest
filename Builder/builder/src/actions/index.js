@@ -3,7 +3,9 @@ import {
   TOKEN_OK,
   TOKEN_FAIL,
   ROLE_OK,
-  HANDLE_SIDEBAR_ITEM_CHOSEN
+  HANDLE_SIDEBAR_ITEM_CHOSEN,
+  POPULATE_CARDS,
+  LEVEL_CHANGE
 } from "../constants/index";
 
 export function loginSuccess(payload) {
@@ -20,4 +22,10 @@ export function roleOk() {
 }
 export function handleSidebarItemChosen(payload) {
   return { type: HANDLE_SIDEBAR_ITEM_CHOSEN, payload };
+}
+export function populateCards(payload) {
+  return { type: POPULATE_CARDS, payload };
+}
+export function levelChange(payload) {
+  return { type: LEVEL_CHANGE, payload };
 }

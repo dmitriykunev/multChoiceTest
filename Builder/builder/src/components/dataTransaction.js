@@ -16,6 +16,9 @@ class DataTransaction {
   cards(payload) {
     return axios.post(URL + "/cards", payload);
   }
+  allevels() {
+    return axios.get(URL + "/cards");
+  }
   cardsAdvanced() {
     return axios.get(URL + "/cards/advanced");
   }

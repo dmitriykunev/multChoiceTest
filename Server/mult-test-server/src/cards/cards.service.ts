@@ -21,6 +21,10 @@ export class CardsService {
     return card.save();
   }
 
+  async findAll(): Promise<Card[]> {
+    return this.cardsRepository.findAll<Card>();
+  }
+
   async findAllAdvanced(): Promise<Card[]> {
     return this.cardsRepository.findAll<Card>({
       where: {

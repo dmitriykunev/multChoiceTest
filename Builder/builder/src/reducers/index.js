@@ -3,7 +3,9 @@ import {
   TOKEN_OK,
   TOKEN_FAIL,
   ROLE_OK,
-  HANDLE_SIDEBAR_ITEM_CHOSEN
+  HANDLE_SIDEBAR_ITEM_CHOSEN,
+  POPULATE_CARDS,
+  LEVEL_CHANGE
 } from "../constants/index";
 
 const initialState = {
@@ -11,9 +13,10 @@ const initialState = {
   role: "",
   token: "",
   sidebarItemChosen: "dashboard",
+  cards: [],
   card: { question: "", a: "", b: "", c: "", d: "" },
   answer: "",
-  level: "",
+  level: "Elementary",
   id: "",
   theory: "",
   author: ""
@@ -41,6 +44,10 @@ function reducer(state = initialState, action) {
       return state;
     case HANDLE_SIDEBAR_ITEM_CHOSEN:
       return { ...state, sidebarItemChosen: action.value };
+    case POPULATE_CARDS:
+      return { ...state, cards: action.cards };
+    case LEVEL_CHANGE:
+      return { ...state, level: action.level };
     default:
       return state;
   }

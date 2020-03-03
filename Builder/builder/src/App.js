@@ -29,9 +29,9 @@ const payload = {
 class App extends Component {
   constructor(props) {
     super(props);
-    console.log("First me!");
+    // console.log("First me!");
     setTimeout(() => {}, 3000);
-    console.log("Another me in 3 sec!");
+    // console.log("Another me in 3 sec!");
     DataTransactions.token(payload).then(authState => {
       if (!authState.data[0].token) {
         this.props.dispatch({

@@ -14,7 +14,7 @@ const mapStateToProps = state => {
 class Login extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props.token);
+    // console.log(this.props.token);
     if (props.token) {
       props.history.push("/admin");
     }

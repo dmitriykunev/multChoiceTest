@@ -38,3 +38,10 @@ h2 {
   display: block;
   block-size: 800px 800px;
 }
+
+.select {
+  display: flex;
+  margin-left: 10px;
+  align-items: center;
+  justify-content: center;
+}

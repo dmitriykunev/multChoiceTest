@@ -14,6 +14,11 @@ export class CardsController {
     await this.cardsService.create(createCardDto);
   }
 
+  @Get()
+  async findAll(): Promise<Card[]> {
+    return this.cardsService.findAll();
+  }
+
   @Get("advanced")
   async findAllAdvanced(): Promise<Card[]> {
     return this.cardsService.findAllAdvanced();
