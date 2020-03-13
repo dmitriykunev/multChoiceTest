@@ -20,7 +20,7 @@ class Cards extends Component {
   handleCardsRepo = level => {
     if (this.props.role === "admin") {
       return this.props.cards.map(card => {
-        return <CardElement card={card} />;
+        return <CardElement key={card.cardId} card={card} />;
       });
     } else {
       return <div> У вас нет прав для просмотра и редактирования раздела</div>;

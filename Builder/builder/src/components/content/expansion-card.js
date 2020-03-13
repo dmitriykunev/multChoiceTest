@@ -2,5 +2,11 @@ import React from "react";
 import "../../index.css";
 
 export default function CardElement(card) {
-  return <div key={card.id}>{card}</div>;
+  console.log(card);
+  const { cardElement } = card;
+  return (
+    <div className="cardList">
+      <div className="questionList">{cardElement.question}</div>
+    </div>
+  );
 }
