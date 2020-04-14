@@ -12,13 +12,13 @@ const mapStateToProps = state => {
 // const token = localStorage.getItem('token');
 
 class Login extends Component {
-  constructor(props) {
-    super(props);
-    // console.log(this.props.token);
-    if (props.token) {
-      props.history.push("/admin");
-    }
-  }
+  // constructor(props) {
+  //   super(props);
+  //   // console.log(this.props.token);
+  //   if (props.token) {
+  //     props.history.push("/admin");
+  //   }
+  // }
   render() {
     return (
       <div className="main">

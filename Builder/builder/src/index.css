@@ -45,3 +45,39 @@ h2 {
   align-items: center;
   justify-content: center;
 }
+
+.cardListSectionA {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  justify-content: space-around;
+}
+
+.cardListSectionB {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  justify-content: space-around;
+}
+
+.cardListSectionC {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  justify-content: space-around;
+}
+
+.cardListSectionAB {
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+  justify-content: space-around;
+}
+
+.levelList {
+  margin: 5px;
+}
+
+.theoryList {
+  margin: 5px;
+}

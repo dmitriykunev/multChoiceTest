@@ -18,13 +18,16 @@ class Cards extends Component {
   //   return props.cards.filter((card) => card.level === props.level);
   // }
   handleCardsRepo = level => {
-    if (this.props.role === "admin") {
+    if (this.props.role === "admin")
+    {
       return this.props.cards.map(card => {
-        return <CardElement key={card.cardId} card={card} />;
+        while (card.level === level)
+        {
+          return <CardElement key={card.cardId} card={card} />
+        }
       });
-    } else {
-      return <div> У вас нет прав для просмотра и редактирования раздела</div>;
-    }
+    } else { return <div>У вас нет прав просматривать список билетов</div> }
+
   };
   render() {
     return (

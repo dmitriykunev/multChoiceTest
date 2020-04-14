@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import AdminPanel from "./panel.js";
-import Footer from "./footer";
+//import Footer from "./footer";
 import "../index.css";
 import { connect } from "react-redux";
 
@@ -18,7 +18,6 @@ class MainAdminDashboard extends Component {
     return (
       <div>
         <AdminPanel {...this.props} />
-        <Footer />
       </div>
     );
   }

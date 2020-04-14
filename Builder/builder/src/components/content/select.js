@@ -57,9 +57,9 @@ export default function SimpleSelect(props) {
           displayEmpty={false}
         >
           <MenuItem value={"Elementary"}>Elementary</MenuItem>
-          <MenuItem value={"Pre-Intermediate"}>Pre-Intermediate</MenuItem>
+          <MenuItem value={"PreIntermediate"}>Pre-Intermediate</MenuItem>
           <MenuItem value={"Intermediate"}>Intermediate</MenuItem>
-          <MenuItem value={"Upper-Intermediate"}>Upper-Intermediate</MenuItem>
+          <MenuItem value={"UpperIntermediate"}>Upper-Intermediate</MenuItem>
           <MenuItem value={"Advanced"}>Advanced</MenuItem>
         </Select>
       </FormControl>
